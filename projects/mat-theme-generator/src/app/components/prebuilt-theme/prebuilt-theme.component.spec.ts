@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { PrebuiltThemeComponent } from './prebuilt-theme.component';
@@ -11,7 +13,9 @@ describe('PrebuiltThemeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PrebuiltThemeComponent ],
       imports: [
-        MatMenuModule
+        MatMenuModule,
+        MatIconModule,
+        MatGridListModule
       ]
     })
     .compileComponents();

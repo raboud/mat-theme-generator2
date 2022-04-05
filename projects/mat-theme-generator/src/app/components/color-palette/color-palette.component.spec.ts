@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconModule } from '@angular/material/icon';
+import { ColorPickerModule } from 'ColorPicker';
 
 import { ColorPaletteComponent } from './color-palette.component';
 
@@ -8,7 +10,11 @@ describe('ColorPaletteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColorPaletteComponent ]
+      declarations: [ ColorPaletteComponent ],
+      imports: [
+        ColorPickerModule,
+        MatIconModule
+      ]
     })
     .compileComponents();
   }));

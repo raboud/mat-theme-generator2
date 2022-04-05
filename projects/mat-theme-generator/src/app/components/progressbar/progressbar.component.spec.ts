@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ProgressbarComponent } from './progressbar.component';
 
@@ -8,7 +12,13 @@ describe('ProgressbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgressbarComponent ]
+      declarations: [ ProgressbarComponent ],
+      imports: [
+        MatExpansionModule,
+        MatProgressBarModule,
+        MatDividerModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   }));

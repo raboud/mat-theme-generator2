@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { Angulartics2Module } from 'angulartics2';
 
 import { AutocompleteComponent } from './autocomplete.component';
 
@@ -8,7 +10,11 @@ describe('AutocompleteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutocompleteComponent ]
+      declarations: [ AutocompleteComponent ],
+      imports: [
+        MatAutocompleteModule,
+        Angulartics2Module.forRoot(),
+      ]
     })
     .compileComponents();
   }));

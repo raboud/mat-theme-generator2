@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { PrebuiltThemeComponent } from './prebuilt-theme.component';
 
@@ -8,7 +9,10 @@ describe('PrebuiltThemeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrebuiltThemeComponent ]
+      declarations: [ PrebuiltThemeComponent ],
+      imports: [
+        MatMenuModule
+      ]
     })
     .compileComponents();
   }));

@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { Angulartics2Module } from 'angulartics2';
 
 import { PaletteComponent } from './palette.component';
 
@@ -8,7 +10,11 @@ describe('PalatteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaletteComponent ]
+      declarations: [ PaletteComponent ],
+      imports: [
+      Angulartics2Module.forRoot(),
+      RouterModule.forRoot([])
+      ]
     })
     .compileComponents();
   }));

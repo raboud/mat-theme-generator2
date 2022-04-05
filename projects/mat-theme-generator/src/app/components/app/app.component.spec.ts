@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Angulartics2Module } from 'angulartics2';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatDialogModule,
+        Angulartics2Module.forRoot()
+
       ],
       declarations: [
         AppComponent
@@ -20,10 +25,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'MatThemeGenerator'`, () => {
+  it(`should have as title 'mat-theme-generator'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('MatThemeGenerator');
+    expect(app.title).toEqual('mat-theme-generator');
   });
 
   it('should render title', () => {

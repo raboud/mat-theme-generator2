@@ -1,0 +1,13 @@
+<div class="colorHex">
+    <input matInput size="10" readonly=true value="{{value}}" aria-label="colorHex">
+</div>
+<!-- <input matInput class="colorPicker" type="color"
+(change)="changeColor($event.target.value)"
+[value]="value"> -->
+<input class="colorPicker" [colorPicker]="value"
+        [cpPosition]="'left'"
+        [cpOutputFormat]="'hex'"
+        [cpAlphaChannel]="'disabled'"
+       (colorPickerChange)="changeColor($event)"
+       [style.background]="value"
+       aria-label="colorPicker"/>

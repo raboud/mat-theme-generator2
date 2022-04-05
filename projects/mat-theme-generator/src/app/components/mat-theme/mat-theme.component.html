@@ -1,0 +1,61 @@
+<ng-container *ngIf="themeService.theme$ | async as
+theme">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Generated theme</mat-card-title>
+        <mat-card-subtitle>Copy following code to style.scss</mat-card-subtitle>
+      </mat-card-header>
+    <button mat-mini-fab color="accent" class="copyBtn" (click)="cp.copy()"
+      angulartics2On="click"
+      angularticsAction="Copy"
+      angularticsLabel="Copy"
+      angularticsCategory="Export theme">
+        <mat-icon>assignment</mat-icon>
+    </button>
+  <prism [language]="'css'" ngxCopyPaste #cp="copy">
+
+        <pre *ngIf="!theme.isPreBuilt; else elseBlock">
+@import '~@angular/material/theming';
+@include mat-core();
+
+$mat-primary-scheme: (
+  100: {{ theme.palette.primaryLightColor }},
+  500: {{ theme.palette.primaryColor }},
+  700: {{ theme.palette.primaryDarkColor }},
+  contrast: (
+    100: {{ theme.palette.primaryLightColorText }},
+    500: {{ theme.palette.primaryColorText }},
+    700: {{ theme.palette.primaryDarkColorText }},
+  )
+);
+$mat-accent-scheme: (
+  100: {{ theme.palette.accentLightColor }},
+  500: {{ theme.palette.accentColor }},
+  700: {{ theme.palette.accentDarkColor }},
+  contrast: (
+    100: {{ theme.palette.accentLightColorText }},
+    500: {{ theme.palette.accentColorText }},
+    700: {{ theme.palette.accentDarkColorText }},
+  )
+);
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+
+$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+
+@include angular-material-theme($app-light-theme);
+
+// following section is for dark mode.
+// use appropriate class name for darkMode
+$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+.darkMode {{ '{' }}
+  @include angular-material-theme($app-dark-theme);
+{{ '}' }}
+    </pre>
+    <ng-template #elseBlock>
+        @import "~@angular/material/prebuilt-themes/{{theme.name}}.css";
+    </ng-template>
+
+-  </prism>
+</mat-card>
+</ng-container>
